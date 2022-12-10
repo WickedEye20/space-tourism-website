@@ -3,10 +3,22 @@ import { NavLink } from "react-router-dom";
 import bg from "../assets/destination/background-destination-desktop.jpg";
 import setBodyColor from "../bgImg";
 import json from "../data.json";
-import MyLoader from "./Loader";
+import MyLoader from "./Loader.js";
 
 export default function Destination(props) {
   setBodyColor({ img: `url("${bg}")` });
+  let activeDestNav = "nav-link custom_nav_link is-active";
+
+  function importAll(r) {
+    let images = {};
+    r.keys().forEach((item, index) => {
+      images[item.replace("./", "")] = r(item);
+    });
+    return images;
+  }
+  const images = importAll(
+    require.context("../assets/destination", false, /\.(png|jpe?g|svg)$/)
+  );
 
   const [dest_name, setDestName] = useState(json.destinations[0].name);
   const [dest_desc, setDestDesc] = useState(json.destinations[0].description);
@@ -28,30 +40,7 @@ export default function Destination(props) {
     };
   }, []);
 
-  let activeDestNav = "nav-link custom_nav_link is-active";
-
-  function importAll(r) {
-    let images = {};
-    r.keys().forEach((item, index) => {
-      images[item.replace("./", "")] = r(item);
-    });
-    return images;
-  }
-  const images = importAll(
-    require.context("../assets/destination", false, /\.(png|jpe?g|svg)$/)
-  );
-
   const changeName = (e) => {
-    useEffect(() => {
-      const t = setTimeout(() => {
-        setLoad(false);
-      }, 1000);
-
-      return () => {
-        clearTimeout(t);
-      };
-    }, []);
-
     Object.keys(json.destinations).map((key) => {
       if (e === json.destinations[key].name) {
         setDestName(e);
@@ -59,7 +48,7 @@ export default function Destination(props) {
         setDestImg(json.destinations[key].images.png);
         setDestDistance(json.destinations[key].distance);
         setDestTravel(json.destinations[key].travel);
-        setLoad(false);
+        // setLoad(false)
         // setOpen(true);
       }
       return true;
