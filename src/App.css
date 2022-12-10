@@ -1,38 +1,326 @@
-.App {
-  text-align: center;
+:root {
+  /* Primary Colors */
+  --color-primary-900: #0b0d17;
+  --color-secondary-500: #d0d6f9;
+  --color-neutral-200: #ffffff;
+
+  /* Typography */
+  /* Headings */
+  --h1-size: 150px;
+  --h2-size: 100px;
+  --h3-size: 56px;
+  --h4-size: 32px;
+  --h5-size: 28px;
+
+  /* Sub Headings */
+  --sh1-size: 28px;
+  --sh2-size: 14px;
+  --nav-size: 16px;
+
+  /* Font Family */
+  --font-heading: "Bellefair", serif;
+  --font-subheading: "Barlow Condensed", sans-serif;
+  --font-text: "Barlow", sans-serif;
+
+  /* Font Spacing */
+  --nav-space: 2.7px;
+  --h5-space: 4.75px;
+  --sh2-space: 2.35px;
+
+  /* Transistion with ease */
+  --with-ease: 0.4s ease;
+
+  --bg-img: url("assets/home/background-home-desktop.jpg");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  background-image: var(--bg-img);
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: 110%;
 }
 
-.App-link {
-  color: #61dafb;
+.custom_nav {
+  font-family: var(--font-subheading);
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+  margin: 1rem 0;
+  font-size: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
+.navbar-nav.custom_navbar-nav {
+  gap: 2rem;
+  backdrop-filter: blur(40px);
+  padding: 2.5rem 10.3rem 2.5rem 7.5rem;
+  background: #ffffff0a;
+  position: relative;
+}
+
+.custom_navbar_main hr {
+  border-top: 1px solid white;
+  width: 40vw;
+  position: absolute;
+  left: 4rem;
+  mix-blend-mode: normal;
+  z-index: 1;
+}
+
+.navbar-nav .nav-link.custom_nav_link {
+  color: var(--color-neutral-200);
+  position: relative;
+}
+
+.navbar-nav .nav-link.custom_nav_link span {
+  font-weight: 700;
+  padding-right: 0.75rem;
+}
+
+/* Nav Indicator */
+
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  transition: 0.4s;
+  height: 5px;
+  z-index: 1;
+  border-radius: 8px 8px 0 0;
+  background: var(--color-neutral-200);
+}
+
+.nav-link.custom_nav_link:before {
+  content: "";
+  position: absolute;
+  bottom: -2.5rem;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-neutral-200);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.nav-link:is(.is-active):before {
+  opacity: 1;
+  bottom: -2.5rem;
+}
+
+.nav-link:not(.is-active):hover:before {
+  opacity: 0.5;
+  bottom: -2.5rem;
+}
+
+/* HomePage Section */
+
+.homepage_main {
+  padding: 0 10rem 8rem;
+  align-items: flex-end;
+  min-height: calc(100vh - 8rem);
+}
+
+.hero_content {
+  color: var(--color-neutral-200);
+}
+
+.hero_title {
+  font-family: var(--font-subheading);
+  letter-spacing: var(--h5-space);
+  color: var(--color-secondary-500);
+  font-size: 1.75rem;
+  text-transform: uppercase;
+}
+
+.hero_main_head {
+  font-family: var(--font-heading);
+  font-size: 9.3rem;
+  text-transform: uppercase;
+}
+
+.hero_main_subhead {
+  font-family: var(--font-text);
+  color: var(--color-secondary-500);
+  font-size: 1.12rem;
+  line-height: 1.8;
+  padding-right: 10px;
+  font-weight: 400;
+}
+
+.explore_btn {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: var(--with-ease);
+}
+
+.explore_btn:is(:hover, :focus) {
+  box-shadow: 0px 0px 0px 80px #97979740;
+  background-color: var(--color-neutral-200);
+}
+
+/* Destination Navbar */
+
+.dest_nav .custom_navbar-nav {
+  padding: 0;
+  backdrop-filter: none;
+  background: none;
+  gap: 2.18rem;
+}
+
+.dest_nav .nav-link.custom_nav_link:before {
+  bottom: -0.75rem;
+}
+
+.dest_nav .navbar-nav .nav-link.custom_nav_link {
+  padding: 0;
+}
+
+/* DEstination Container */
+
+.destinationSection {
+  padding: 0 10rem 7rem;
+}
+
+.dest_container {
+  color: var(--color-neutral-200);
+  padding-right: 1.75rem;
+}
+
+.dest_title {
+  font-size: var(--h5-size);
+  color: var(--color-neutral-200);
+  font-family: var(--font-subheading);
+  letter-spacing: var(--h5-space);
+  text-transform: uppercase;
+  padding: 4rem 0;
+}
+
+.dest_title span {
+  font-weight: 700;
+  opacity: 0.25;
+  padding-right: 0.75rem;
+}
+
+.dest_head {
+  font-size: 6.25rem;
+}
+
+.dest_subhead{
+  padding-right: 0;
+  padding-bottom: 3rem;
+}
+
+.dest_img {
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.dest_img img {
+  animation: rotate 100s infinite linear;
+}
+
+/* Destination Animation */
+@keyframes rotate {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
     transform: rotate(360deg);
   }
+}
+
+.desc_detail{
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+.desc_detail_name{
+  font-size: 0.875rem;
+  font-family: var(--font-subheading);
+  color: var(--color-secondary-500);
+  letter-spacing: var(--sh2-space);
+}
+
+.desc_detail_info{
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
 }
