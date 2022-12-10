@@ -42,15 +42,15 @@ export default function Destination(props) {
   );
 
   const changeName = (e) => {
-    // useEffect(() => {
-    //   const t = setTimeout(() => {
-    //     setLoad(false);
-    //   }, 1500);
+    useEffect(() => {
+      const t = setTimeout(() => {
+        setLoad(false);
+      }, 1000);
 
-    //   return () => {
-    //     clearTimeout(t);
-    //   };
-    // }, []);
+      return () => {
+        clearTimeout(t);
+      };
+    }, []);
 
     Object.keys(json.destinations).map((key) => {
       if (e === json.destinations[key].name) {
