@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import bg from "../assets/destination/background-destination-desktop.jpg";
 import setBodyColor from "../bgImg";
 import json from "../data.json";
+import MyLoader from "./Loader";
 
 export default function Destination(props) {
   setBodyColor({ img: `url("${bg}")` });
@@ -10,8 +11,22 @@ export default function Destination(props) {
   const [dest_name, setDestName] = useState(json.destinations[0].name);
   const [dest_desc, setDestDesc] = useState(json.destinations[0].description);
   const [dest_img, setDestImg] = useState(json.destinations[0].images.png);
-  const [dest_distance, setDestDistance] = useState(json.destinations[0].distance);
+
+  const [dest_distance, setDestDistance] = useState(
+    json.destinations[0].distance
+  );
   const [dest_travel, setDestTravel] = useState(json.destinations[0].travel);
+  const [loadImg, setLoad] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setLoad(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(t);
+    };
+  }, []);
 
   let activeDestNav = "nav-link custom_nav_link is-active";
 
@@ -27,6 +42,16 @@ export default function Destination(props) {
   );
 
   const changeName = (e) => {
+    // useEffect(() => {
+    //   const t = setTimeout(() => {
+    //     setLoad(false);
+    //   }, 1500);
+
+    //   return () => {
+    //     clearTimeout(t);
+    //   };
+    // }, []);
+
     Object.keys(json.destinations).map((key) => {
       if (e === json.destinations[key].name) {
         setDestName(e);
@@ -34,6 +59,8 @@ export default function Destination(props) {
         setDestImg(json.destinations[key].images.png);
         setDestDistance(json.destinations[key].distance);
         setDestTravel(json.destinations[key].travel);
+        setLoad(false);
+        // setOpen(true);
       }
       return true;
     });
@@ -48,7 +75,11 @@ export default function Destination(props) {
         <div className="row m-0 align-items-center">
           <div className="col-lg-7">
             <div className="dest_img">
-              <img src={images[dest_img]} alt="" />
+              {loadImg ? (
+                <MyLoader />
+              ) : (
+                <img src={images[dest_img]} alt={"Loading"} />
+              )}
             </div>
           </div>
           <div className="col-lg-5">
