@@ -6,7 +6,6 @@ import bgMobile from "../assets/destination/background-destination-mobile.jpg";
 import setBodyImg from "../functions/bgImg";
 import json from "../data.json";
 import importAll from "../functions/imagesImport";
-import MyLoader from "./Loader.js";
 
 import getWindowSize from "../functions/windowSize";
 
@@ -49,18 +48,6 @@ export default function Destination() {
     json.destinations[0].distance
   );
   const [dest_travel, setDestTravel] = useState(json.destinations[0].travel);
-  const [loadImg, setLoad] = useState(true);
-
-  // Use effect for Loader
-  useEffect(() => {
-    const t = setTimeout(() => {
-      setLoad(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(t);
-    };
-  }, []);
 
   // Function to Change State According to Destination
   const changeName = (e) => {

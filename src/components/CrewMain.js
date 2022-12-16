@@ -5,7 +5,6 @@ import bgMobile from "../assets/crew/background-crew-mobile.jpg";
 import setBodyImg from "../functions/bgImg";
 import json from "../data.json";
 import importAll from "../functions/imagesImport";
-import MyLoader from "./Loader.js";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
@@ -44,8 +43,6 @@ export default function CrewMain() {
     require.context("../assets/crew", false, /\.(png|jpe?g|svg)$/)
   );
 
-  const [loadImg, setLoad] = useState(true);
-
   // Swiper Controller
   const swiper1Ref = useRef();
   const swiper2Ref = useRef();
@@ -53,17 +50,6 @@ export default function CrewMain() {
   useLayoutEffect(() => {
     swiper1Ref.current.controller.control = swiper2Ref.current;
     swiper2Ref.current.controller.control = swiper1Ref.current;
-  }, []);
-
-  // Use effect for Loader
-  useEffect(() => {
-    const t = setTimeout(() => {
-      setLoad(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(t);
-    };
   }, []);
 
   const slides3 = [];

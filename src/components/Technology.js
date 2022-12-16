@@ -5,7 +5,6 @@ import bgMobile from "../assets/technology/background-technology-mobile.jpg";
 import setBodyImg from "../functions/bgImg";
 import json from "../data.json";
 import importAll from "../functions/imagesImport";
-import MyLoader from "./Loader.js";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
@@ -44,8 +43,6 @@ export default function Technology() {
     require.context("../assets/technology", false, /\.(png|jpe?g|svg)$/)
   );
 
-  const [loadImg, setLoad] = useState(true);
-
   // Swiper Controller
   const swiper3Ref = useRef();
   const swiper4Ref = useRef();
@@ -53,17 +50,6 @@ export default function Technology() {
   useLayoutEffect(() => {
     swiper3Ref.current.controller.control = swiper4Ref.current;
     swiper4Ref.current.controller.control = swiper3Ref.current;
-  }, []);
-
-  // Use effect for Loader
-  useEffect(() => {
-    const t = setTimeout(() => {
-      setLoad(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(t);
-    };
   }, []);
 
   const slides3 = [];
