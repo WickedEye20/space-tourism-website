@@ -1,0 +1,281 @@
+@media (min-width: 768px) and (max-width: 992px) {
+  .navbar-nav.custom_navbar-nav {
+    padding: 2.5rem 3rem;
+  }
+  .navbar-nav .nav-link.custom_nav_link {
+    padding: 0;
+    font-size: 0.875rem;
+  }
+  .custom_nav {
+    padding: 0 0 2.5rem 0;
+  }
+  .homepage_main {
+    padding-top: 5.875rem;
+    gap: 9rem;
+  }
+  .explore_btn {
+    width: 242px;
+    height: 242px;
+  }
+  .hero_main_subhead {
+    font-size: 1rem;
+  }
+
+  /* Destination */
+  .destinationSection {
+    padding: 0 2.375rem 7rem;
+  }
+  .dest_img img {
+    max-width: 300px;
+  }
+  .dest_container {
+    padding: 0;
+    width: 100%;
+  }
+  .dest_title {
+    font-size: 1.25rem;
+    padding: 0 0 3.75rem 0;
+  }
+  .destination_right_section {
+    text-align: center;
+  }
+  .dest_nav .custom_navbar-nav {
+    padding: 3.375rem 0 2.75rem;
+  }
+  .dest_head {
+    font-size: 5rem;
+  }
+  .dest_subhead {
+    max-width: 573px;
+    margin: auto;
+  }
+  /* Crew Section */
+  .crewSection {
+    padding: 0 2.375rem;
+  }
+  .crew_right_section {
+    grid-template-rows: auto auto 5.625rem;
+  }
+  .crew_head {
+    font-size: 2.5rem;
+  }
+  .crew_role {
+    font-size: 1.5rem;
+  }
+  .crew_subhead {
+    max-width: 600px;
+  }
+
+  /* Swiper */
+  .swiper-slide {
+    justify-content: center;
+    text-align: center;
+  }
+  .swiper-pagination {
+    text-align: center !important;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Technology */
+
+  .tech_subhead {
+    max-width: 448px;
+  }
+  .tech_right_section {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 2fr;
+    height: 550px;
+  }
+
+  .tech_bullets {
+    grid-template-columns: 60px 60px 60px;
+    justify-content: center;
+  }
+  .tech_bullet {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    margin-left: 0 !important;
+  }
+  .homepage_main {
+    padding: 0 1.5rem 7rem;
+    gap: 5rem;
+  }
+  .hero_main_head {
+    font-size: 5rem;
+  }
+  .hero_title,
+  .hero_main_subhead {
+    font-size: 0.938rem;
+  }
+  .explore_btn {
+    width: 150px;
+    height: 150px;
+    font-size: 1.25rem;
+  }
+
+  /* Destination */
+  .destinationSection {
+    padding: 0 1.5rem 3.5rem;
+  }
+  .dest_title {
+    font-size: 1rem;
+    padding: 0 0 2rem;
+    text-align: center;
+  }
+  .dest_img img {
+    width: 170px;
+  }
+  .dest_nav .custom_navbar-nav {
+    flex-direction: row;
+  }
+  .dest_nav .navbar-nav .nav-link.custom_nav_link {
+    font-size: 0.875rem;
+  }
+  .dest_head {
+    font-size: 3.5rem;
+  }
+  .dest_subhead {
+    padding-bottom: 1rem;
+  }
+  .dest_container {
+    padding: 0;
+    text-align: center;
+  }
+  /* Crew Section */
+  .crew_right_section {
+    grid-template-rows: 4.625rem auto;
+  }
+  .crew_right_section > .crew_title {
+    display: none;
+  }
+
+  .crew_role {
+    font-size: 1rem;
+  }
+  .crew_head {
+    font-size: 1.5rem;
+  }
+  .crew_img {
+    height: 225px;
+  }
+
+  /* Swiper */
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-bottom: 1px solid #383b4b;
+  }
+  .swiper-pagination {
+    top: 32px !important;
+    display: flex !important;
+    height: 10px !important;
+    justify-content: center;
+  }
+  .class_bullet {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .crew_bullets {
+    grid-row: 1;
+  }
+
+  /* Technology */
+  .tech_container {
+    padding: 0;
+  }
+  .tech_bullets {
+    grid-template-columns: 40px 40px 40px;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .tech_bullet {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1rem;
+  }
+  .tech_right_section {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 3fr;
+    height: 400px;
+  }
+  /* Navbar */
+  .nav_main {
+    transition: 0.4s ease-in-out;
+    width: 70%;
+    position: fixed !important;
+    height: 100%;
+    top: 0;
+    z-index: 111;
+  }
+  .navbar_main {
+    right: -100%;
+  }
+  #navbar_main_collapse {
+    right: 0;
+  }
+  .navbar-nav.custom_navbar-nav {
+    height: 100%;
+    padding: 1.5rem 1.5rem 0 2rem;
+  }
+  .navbar-nav .nav-link.custom_nav_link {
+    padding: 0;
+  }
+  .nav-link.custom_nav_link:before {
+    content: none;
+  }
+  .close_nav {
+    display: grid;
+    gap: 0.375rem;
+    place-content: center end;
+    height: 3.625rem;
+  }
+  .burger_line {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--color-neutral-200);
+    transition: 0.4s ease;
+  }
+  .burger_line.active{
+    background: var(--color-secondary-500);
+  }
+  .burger_line.active:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+  }
+  .burger_line.active:nth-child(2) {
+    transform: translateX(80px);
+  }
+  .burger_line.active:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .crew_bullets {
+    grid-template-columns: 10px 10px 10px 10px !important;
+    align-items: center;
+  }
+  .class_bullet {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .tech_img {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 100%;
+  }
+  .tech_img img {
+    width: 100%;
+  }
+}

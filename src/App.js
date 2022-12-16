@@ -1,4 +1,5 @@
-import "./App.css";
+import "./assets/css/style.css";
+import "./assets/css/responsive.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import React from "react";
@@ -9,7 +10,9 @@ import {
   Routes,
 } from "react-router-dom";
 import Destination from "./components/Destination";
-
+import Crew from "./components/CrewMain";
+import Technology from "./components/Technology";
+// eslint-disable-next-line
 function App() {
   return (
     <>
@@ -48,6 +51,8 @@ function App() {
             path="/destination/titan"
             element={<Destination name="Titan" />}
           />
+          <Route exact path="/crew" element={<Crew />} />
+          <Route exact path="/technology" element={<Technology />} />
         </Routes>
       </Router>
     </>
