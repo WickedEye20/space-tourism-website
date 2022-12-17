@@ -17,12 +17,12 @@ export default function Destination() {
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
-  const [activeLoader, setActiveLoader] = useState(true);
+  const [activeLoader, setActiveLoader] = useState(false);
 
   useEffect(() => {
     setWindowSize(getWindowSize());
 
-    setActiveLoader(false);
+    setActiveLoader(true);
 
     // window.addEventListener("resize", handleWindowResize);
 
@@ -83,7 +83,7 @@ export default function Destination() {
         <div className="row m-0 align-items-center">
           <div className="col-lg-7">
             <div className="dest_img">
-              {activeLoader ? (
+              {!activeLoader ? (
                 <div className="ms-lg-5 m-auto">
                   <MyLoader />
                 </div>
