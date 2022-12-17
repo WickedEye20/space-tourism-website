@@ -17,12 +17,13 @@ export default function Destination() {
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
-  const [activeLoader, setActiveLoader] = useState(false);
+  const [activeLoader, setActiveLoader] = useState(true);
 
   useEffect(() => {
+
     setWindowSize(getWindowSize());
 
-    setActiveLoader(true);
+    setActiveLoader(false);
 
     // window.addEventListener("resize", handleWindowResize);
 
@@ -57,11 +58,12 @@ export default function Destination() {
 
   // Function to Change State According to Destination
   const changeName = (e) => {
-    setActiveLoader(false);
+    setActiveLoader(true);
 
     setTimeout(() => {
-      setActiveLoader(true);
-    }, 500);
+
+      setActiveLoader(false);
+    }, 1500);
     Object.keys(json.destinations).map((key) => {
       if (e === json.destinations[key].name) {
         setDestName(e);
@@ -74,6 +76,15 @@ export default function Destination() {
     });
   };
 
+  // window.addEventListener("load", (event) => {
+  //   var image = document.querySelector("img");
+  //   var isLoaded = image.complete && image.naturalHeight !== 0;
+  //   // setActiveLoader(true)
+  //   if (isLoaded) {
+  //     setActiveLoader(false);
+  //   }
+  // });
+
   return (
     <>
       <section className="destinationSection">
@@ -83,17 +94,18 @@ export default function Destination() {
         <div className="row m-0 align-items-center">
           <div className="col-lg-7">
             <div className="dest_img">
-              {!activeLoader ? (
+              {activeLoader ? (
                 <div className="ms-lg-5 m-auto">
                   <MyLoader />
                 </div>
               ) : (
-                <img
-                  className="ms-lg-5 m-auto"
+                ""
+              )}
+              <img
+                  className={`ms-lg-5 m-auto ${activeLoader ? "d-none" : "d-block"}`}
                   src={images[dest_img]}
                   alt={"Loading"}
                 />
-              )}
             </div>
           </div>
           <div className="col-lg-5">
