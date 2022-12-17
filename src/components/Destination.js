@@ -22,7 +22,7 @@ export default function Destination() {
   useEffect(() => {
     setWindowSize(getWindowSize());
 
-    // setActiveLoader(false);
+    setActiveLoader(false);
 
     // window.addEventListener("resize", handleWindowResize);
 
@@ -57,11 +57,11 @@ export default function Destination() {
 
   // Function to Change State According to Destination
   const changeName = (e) => {
-    // setActiveLoader(false);
+    setActiveLoader(false);
 
-    // setTimeout(() => {
-    //   setActiveLoader(true);
-    // }, 500);
+    setTimeout(() => {
+      setActiveLoader(true);
+    }, 500);
     Object.keys(json.destinations).map((key) => {
       if (e === json.destinations[key].name) {
         setDestName(e);
@@ -73,14 +73,6 @@ export default function Destination() {
       return true;
     });
   };
-
-  window.addEventListener("load", (event) => {
-    var image = document.querySelector("img");
-    var isLoaded = image.complete && image.naturalHeight !== 0;
-    if (isLoaded) {
-      setActiveLoader(false);
-    }
-  });
 
   return (
     <>
