@@ -53,7 +53,7 @@ function App() {
           />
           <Route exact path="/crew" element={<Crew />} />
           <Route exact path="/technology" element={<Technology />} />
-          <Route exact path="/*" element={<Home />} />
+          <Route exact path="/*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </>
