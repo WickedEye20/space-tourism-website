@@ -1,5 +1,5 @@
 import logo from "../assets/shared/logo.svg";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import getWindowSize from "../functions/windowSize";
 
@@ -13,7 +13,6 @@ export default function Navbar(props) {
 
   const [nav, setNav] = useState(false);
 
-  const activeRef = useRef(null);
   const [activeLoader, setActiveLoader] = useState(false);
 
   const handleLoader = () => {
@@ -97,7 +96,6 @@ export default function Navbar(props) {
                 ></span>
               </div>
               <NavLink
-                ref={activeRef}
                 className={({ isActive }) =>
                   isActive
                     ? activeClassName
@@ -111,7 +109,6 @@ export default function Navbar(props) {
                 {props.nav_1}
               </NavLink>
               <NavLink
-                ref={activeRef}
                 className={({ isActive }) =>
                   isActive
                     ? activeClassName

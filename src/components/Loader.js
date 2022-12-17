@@ -6,11 +6,11 @@ const MyLoader = (props) => (
     width={445}
     height={445}
     viewBox="0 0 445 445"
-    backgroundColor="#c7c7c7"
-    foregroundColor="#dedede"
+    backgroundColor="#f0f0f0"
+    foregroundColor="#e0e0e0"
     {...props}
   >
-    <circle cx="219" cy="229" r="215" />
+    <circle cx="222.5" cy="222.5" r="222.5" />
   </ContentLoader>
 );
 export default MyLoader;

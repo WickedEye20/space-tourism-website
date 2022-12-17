@@ -9,14 +9,20 @@ import importAll from "../functions/imagesImport";
 
 import getWindowSize from "../functions/windowSize";
 
+import MyLoader from "./Loader";
+
 export default function Destination() {
   // Set Background Image
   setBodyImg({ img: `url("${bgDesktop}")` });
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
+  const [activeLoader, setActiveLoader] = useState(true);
+
   useEffect(() => {
     setWindowSize(getWindowSize());
+
+    // setActiveLoader(false);
 
     // window.addEventListener("resize", handleWindowResize);
 
@@ -51,6 +57,11 @@ export default function Destination() {
 
   // Function to Change State According to Destination
   const changeName = (e) => {
+    // setActiveLoader(false);
+
+    // setTimeout(() => {
+    //   setActiveLoader(true);
+    // }, 500);
     Object.keys(json.destinations).map((key) => {
       if (e === json.destinations[key].name) {
         setDestName(e);
@@ -72,11 +83,18 @@ export default function Destination() {
         <div className="row m-0 align-items-center">
           <div className="col-lg-7">
             <div className="dest_img">
-              <img
-                className="ms-lg-5 m-auto"
-                src={images[dest_img]}
-                alt={"Loading"}
-              />
+              {activeLoader ? (
+                <div className="ms-lg-5 m-auto">
+                  <MyLoader />
+                </div>
+              ) : (
+                <img
+                  className="ms-lg-5 m-auto"
+                  src={images[dest_img]}
+                  alt={"Loading"}
+                  onLoad={() => setActiveLoader(false)}
+                />
+              )}
             </div>
           </div>
           <div className="col-lg-5">
