@@ -47,7 +47,7 @@ export default function Navbar(props) {
           id={nav ? "navbar_main_collapse" : "navbar_main_collapsed"}
         >
           <hr />
-          <div className="navbar-nav custom_navbar-nav">
+          <div className="navbar-nav custom_navbar-nav" id="custom_navbar-nav">
             <div className="close_nav d-md-none" onClick={() => setNav(!nav)}>
               <span
                 className={nav ? "burger_line active" : "burger_line"}

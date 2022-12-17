@@ -227,7 +227,7 @@
   .navbar-nav .nav-link.custom_nav_link {
     padding: 0;
   }
-  .nav-link.custom_nav_link:before {
+  #custom_navbar-nav .nav-link.custom_nav_link:before {
     content: none;
   }
   .close_nav {
