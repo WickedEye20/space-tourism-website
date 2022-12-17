@@ -33,7 +33,7 @@ export default function Destination() {
     setBodyImg({ img: `url("${bgMobile}")` });
   }
 
-  let activeDestNav = "nav-link custom_nav_link is-active";
+  let activeDestNav = "nav-link custom_nav_link text-decoration-none is-active";
 
   // Import all images from folder
   const images = importAll(

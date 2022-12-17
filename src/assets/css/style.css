@@ -428,7 +428,7 @@ body {
   height: 700px;
 }
 
-.crew_bullets{
+.crew_bullets {
   grid-template-columns: 15px 15px 15px 15px;
   gap: 1rem !important;
   align-items: end;
@@ -452,11 +452,11 @@ body {
   opacity: 1;
 }
 
-.tech_img{
+.tech_img {
   height: 527px;
 }
 
-.tech_subhead{
+.tech_subhead {
   padding: 12px 0;
 }
 
@@ -484,4 +484,15 @@ body {
 #tech_SwiperImg .swiper-slide {
   justify-content: end;
   align-items: center;
+}
+
+/* Loader */
+.main_loader {
+  background: rgb(0, 0, 0);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
 }
