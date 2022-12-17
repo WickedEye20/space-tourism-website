@@ -74,6 +74,14 @@ export default function Destination() {
     });
   };
 
+  window.addEventListener("load", (event) => {
+    var image = document.querySelector("img");
+    var isLoaded = image.complete && image.naturalHeight !== 0;
+    if (isLoaded) {
+      setActiveLoader(false);
+    }
+  });
+
   return (
     <>
       <section className="destinationSection">
@@ -92,7 +100,6 @@ export default function Destination() {
                   className="ms-lg-5 m-auto"
                   src={images[dest_img]}
                   alt={"Loading"}
-                  onLoad={() => setActiveLoader(false)}
                 />
               )}
             </div>
