@@ -29,7 +29,7 @@ export default function Destination() {
   useEffect(() => {
     setWindowSize(getWindowSize());
 
-    setActiveLoader(true);
+    setActiveLoader(false);
 
     setTimeout(() => {
       setClickLoader(true);
