@@ -9,6 +9,8 @@ import importAll from "../functions/imagesImport";
 
 import getWindowSize from "../functions/windowSize";
 
+import { ThreeDots } from "react-loader-spinner";
+
 import { Placeholder } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 
@@ -22,13 +24,16 @@ export default function Destination() {
 
   const [activeLoader, setActiveLoader] = useState(true);
 
+  const [clickLoader, setClickLoader] = useState(false);
+
   useEffect(() => {
     setWindowSize(getWindowSize());
 
     setActiveLoader(false);
-    // setActiveLoader(true);
 
-    // window.addEventListener("resize", handleWindowResize);
+    setTimeout(() => {
+      setClickLoader(true);
+    }, 1500);
 
     return () => {
       // window.removeEventListener("resize", handleWindowResize);
@@ -80,6 +85,22 @@ export default function Destination() {
 
   return (
     <>
+    {!clickLoader ? (
+        <div className="main_loader">
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="var(--color-secondary-500)"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
+        </div>
+      ) : (
+        ""
+      )}
       <section className="destinationSection">
         <div className="dest_title">
           <span>01</span> Pick Your Destination

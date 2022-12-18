@@ -31,8 +31,6 @@ export default function Navbar(props) {
       setActiveLoader(true);
     }, 1500);
 
-    // window.addEventListener("resize", handleWindowResize);
-
     return () => {
       // window.removeEventListener("resize", handleWindowResize);
     };

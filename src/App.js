@@ -20,7 +20,7 @@ function App() {
       <Router>
         <Navbar
           nav_1="Home"
-          nav_2="Desination"
+          nav_2="Destination"
           nav_3="Crew"
           nav_4="Technology"
         />

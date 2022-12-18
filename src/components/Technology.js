@@ -107,7 +107,6 @@ export default function Technology() {
                 mousewheel={true}
                 spaceBetween={10}
                 slidesPerView={1}
-                // autoplay={true}
                 direction="horizontal"
                 breakpoints={{ 576: { direction: "vertical" } }}
                 pagination={{

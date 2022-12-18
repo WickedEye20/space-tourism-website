@@ -11,13 +11,8 @@ export default function Home() {
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
-  // const [activeLoader, setActiveLoader] = useState(false);
-
   useEffect(() => {
     setWindowSize(getWindowSize());
-
-    // window.addEventListener("resize", handleWindowResize);
-
     return () => {
       // window.removeEventListener("resize", handleWindowResize);
     };
@@ -47,7 +42,7 @@ export default function Home() {
           </div>
           <div className="hero_click col-lg-6 text-lg-end text-md-center">
             <NavLink to="destination">
-              <button className="btn btn-light explore_btn" to="/destination">
+              <button className="btn btn-light explore_btn">
                 Explore
               </button>
             </NavLink>
