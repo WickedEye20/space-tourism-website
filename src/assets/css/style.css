@@ -266,7 +266,7 @@ body {
 
 .dest_container {
   color: var(--color-neutral-200);
-  padding-right: 1.75rem;
+  /* padding-right: 1.75rem; */
 }
 
 .dest_container hr {

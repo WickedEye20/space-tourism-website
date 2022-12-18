@@ -9,7 +9,10 @@ import importAll from "../functions/imagesImport";
 
 import getWindowSize from "../functions/windowSize";
 
-import MyLoader from "./Loader";
+import { Placeholder } from "rsuite";
+import "rsuite/dist/rsuite.min.css";
+
+import { MyLoader } from "./Loader";
 
 export default function Destination() {
   // Set Background Image
@@ -20,10 +23,10 @@ export default function Destination() {
   const [activeLoader, setActiveLoader] = useState(true);
 
   useEffect(() => {
-
     setWindowSize(getWindowSize());
 
     setActiveLoader(false);
+    // setActiveLoader(true);
 
     // window.addEventListener("resize", handleWindowResize);
 
@@ -61,7 +64,6 @@ export default function Destination() {
     setActiveLoader(true);
 
     setTimeout(() => {
-
       setActiveLoader(false);
     }, 1500);
     Object.keys(json.destinations).map((key) => {
@@ -75,15 +77,6 @@ export default function Destination() {
       return true;
     });
   };
-
-  // window.addEventListener("load", (event) => {
-  //   var image = document.querySelector("img");
-  //   var isLoaded = image.complete && image.naturalHeight !== 0;
-  //   // setActiveLoader(true)
-  //   if (isLoaded) {
-  //     setActiveLoader(false);
-  //   }
-  // });
 
   return (
     <>
@@ -102,10 +95,12 @@ export default function Destination() {
                 ""
               )}
               <img
-                  className={`ms-lg-5 m-auto ${activeLoader ? "d-none" : "d-block"}`}
-                  src={images[dest_img]}
-                  alt={"Loading"}
-                />
+                className={`ms-lg-5 m-auto ${
+                  activeLoader ? "d-none" : "d-block"
+                }`}
+                src={images[dest_img]}
+                alt={"Loading"}
+              />
             </div>
           </div>
           <div className="col-lg-5">
@@ -116,7 +111,9 @@ export default function Destination() {
                     <div className="navbar-nav custom_navbar-nav">
                       <NavLink
                         className={({ isActive }) =>
-                          isActive ? activeDestNav : "nav-link custom_nav_link"
+                          isActive
+                            ? activeDestNav
+                            : "nav-link custom_nav_link text-decoration-none"
                         }
                         aria-current="page"
                         to="/destination/moon"
@@ -126,7 +123,9 @@ export default function Destination() {
                       </NavLink>
                       <NavLink
                         className={({ isActive }) =>
-                          isActive ? activeDestNav : "nav-link custom_nav_link"
+                          isActive
+                            ? activeDestNav
+                            : "nav-link custom_nav_link text-decoration-none"
                         }
                         to="/destination/mars"
                         onClick={() => changeName("Mars")}
@@ -135,7 +134,9 @@ export default function Destination() {
                       </NavLink>
                       <NavLink
                         className={({ isActive }) =>
-                          isActive ? activeDestNav : "nav-link custom_nav_link"
+                          isActive
+                            ? activeDestNav
+                            : "nav-link custom_nav_link text-decoration-none"
                         }
                         to="/destination/europa"
                         onClick={() => changeName("Europa")}
@@ -144,7 +145,9 @@ export default function Destination() {
                       </NavLink>
                       <NavLink
                         className={({ isActive }) =>
-                          isActive ? activeDestNav : "nav-link custom_nav_link"
+                          isActive
+                            ? activeDestNav
+                            : "nav-link custom_nav_link text-decoration-none"
                         }
                         to="/destination/titan"
                         onClick={() => changeName("Titan")}
@@ -157,21 +160,132 @@ export default function Destination() {
                 </nav>
               </div>
               <div className="dest_container">
-                <div className="hero_main_head dest_head">{dest_name}</div>
-                <div className="hero_main_subhead dest_subhead">
-                  {dest_desc}
-                </div>
-                <hr />
-                <div className="row justify-content-md-center gy-3 pt-3">
-                  <div className="col-lg-6 col-md-4 desc_detail">
-                    <div className="desc_detail_name">Avg. Distance</div>
-                    <div className="desc_detail_info">{dest_distance}</div>
-                  </div>
-                  <div className="col-lg-6 col-md-4 desc_detail">
-                    <div className="desc_detail_name">Est. Travel Time</div>
-                    <div className="desc_detail_info">{dest_travel}</div>
-                  </div>
-                </div>
+                {windowSize.innerWidth <= 576 ? (
+                  activeLoader ? (
+                    <>
+                      <Placeholder.Paragraph
+                        style={{ marginBottom: 20}}
+                        rows={1}
+                        rowHeight={60}
+                      />
+                      <Placeholder.Paragraph rows={6} rowMargin={10} />
+                      <Placeholder.Paragraph
+                        style={{ marginTop: 80 }}
+                        rows={1}
+                        rowHeight={50}
+                      />
+                      <Placeholder.Paragraph
+                        style={{ marginBottom: 50, marginTop: 20 }}
+                        rows={1}
+                        rowHeight={50}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <div className="hero_main_head dest_head">
+                        {dest_name}
+                      </div>
+                      <div className="hero_main_subhead dest_subhead">
+                        {dest_desc}
+                      </div>
+                      <hr />
+                      <div className="row justify-content-md-center gy-3 pt-3">
+                        <div className="col-lg-6 col-md-4 desc_detail">
+                          <div className="desc_detail_name">Avg. Distance</div>
+                          <div className="desc_detail_info">
+                            {dest_distance}
+                          </div>
+                        </div>
+                        <div className="col-lg-6 col-md-4 desc_detail">
+                          <div className="desc_detail_name">
+                            Est. Travel Time
+                          </div>
+                          <div className="desc_detail_info">{dest_travel}</div>
+                        </div>
+                      </div>
+                    </>
+                  )
+                ) : windowSize.innerWidth <= 992 ? (
+                  activeLoader ? (
+                    <>
+                      <Placeholder.Paragraph
+                        style={{ marginBottom: 20, marginTop: 5 }}
+                        rows={1}
+                        rowHeight={80}
+                      />
+                      <Placeholder.Paragraph
+                        style={{ marginTop: 25 }}
+                        rows={4}
+                        rowMargin={15}
+                      />
+                      <Placeholder.Paragraph
+                        style={{ marginTop: 110 }}
+                        rows={1}
+                        rowHeight={62.18}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <div className="hero_main_head dest_head">
+                        {dest_name}
+                      </div>
+                      <div className="hero_main_subhead dest_subhead">
+                        {dest_desc}
+                      </div>
+                      <hr />
+                      <div className="row justify-content-md-center gy-3 pt-3">
+                        <div className="col-lg-6 col-md-4 desc_detail">
+                          <div className="desc_detail_name">Avg. Distance</div>
+                          <div className="desc_detail_info">
+                            {dest_distance}
+                          </div>
+                        </div>
+                        <div className="col-lg-6 col-md-4 desc_detail">
+                          <div className="desc_detail_name">
+                            Est. Travel Time
+                          </div>
+                          <div className="desc_detail_info">{dest_travel}</div>
+                        </div>
+                      </div>
+                    </>
+                  )
+                ) : activeLoader ? (
+                  <>
+                    <Placeholder.Paragraph
+                      style={{ marginBottom: 45 }}
+                      rows={1}
+                      rowHeight={95}
+                    />
+                    <Placeholder.Paragraph
+                      rows={5}
+                      rowMargin={15}
+                      rowHeight={15}
+                    />
+                    <Placeholder.Paragraph
+                      style={{ marginTop: 85 }}
+                      rows={1}
+                      rowHeight={73}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <div className="hero_main_head dest_head">{dest_name}</div>
+                    <div className="hero_main_subhead dest_subhead">
+                      {dest_desc}
+                    </div>
+                    <hr />
+                    <div className="row justify-content-md-center gy-3 pt-3">
+                      <div className="col-lg-6 col-md-4 desc_detail">
+                        <div className="desc_detail_name">Avg. Distance</div>
+                        <div className="desc_detail_info">{dest_distance}</div>
+                      </div>
+                      <div className="col-lg-6 col-md-4 desc_detail">
+                        <div className="desc_detail_name">Est. Travel Time</div>
+                        <div className="desc_detail_info">{dest_travel}</div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
