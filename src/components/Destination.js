@@ -11,7 +11,7 @@ import getWindowSize from "../functions/windowSize";
 
 import { ThreeDots } from "react-loader-spinner";
 
-import { Placeholder } from "rsuite";
+import { Placeholder, CustomProvider } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 
 import { MyLoader } from "./Loader";
@@ -29,7 +29,7 @@ export default function Destination() {
   useEffect(() => {
     setWindowSize(getWindowSize());
 
-    setActiveLoader(false);
+    setActiveLoader(true);
 
     setTimeout(() => {
       setClickLoader(true);
@@ -85,7 +85,7 @@ export default function Destination() {
 
   return (
     <>
-    {!clickLoader ? (
+      {!clickLoader ? (
         <div className="main_loader">
           <ThreeDots
             height="80"
@@ -184,22 +184,27 @@ export default function Destination() {
                 {windowSize.innerWidth <= 576 ? (
                   activeLoader ? (
                     <>
-                      <Placeholder.Paragraph
-                        style={{ marginBottom: 20}}
-                        rows={1}
-                        rowHeight={60}
-                      />
-                      <Placeholder.Paragraph rows={6} rowMargin={10} />
-                      <Placeholder.Paragraph
-                        style={{ marginTop: 80 }}
-                        rows={1}
-                        rowHeight={50}
-                      />
-                      <Placeholder.Paragraph
-                        style={{ marginBottom: 50, marginTop: 20 }}
-                        rows={1}
-                        rowHeight={50}
-                      />
+                      <CustomProvider theme="dark">
+                        <Placeholder.Paragraph
+                          style={{ marginBottom: 20 }}
+                          rows={1}
+                          rowHeight={60}
+                          active
+                        />
+                        <Placeholder.Paragraph rows={6} rowMargin={10} active/>
+                        <Placeholder.Paragraph
+                          style={{ marginTop: 80 }}
+                          rows={1}
+                          rowHeight={50}
+                          active
+                        />
+                        <Placeholder.Paragraph
+                          style={{ marginBottom: 50, marginTop: 20 }}
+                          rows={1}
+                          rowHeight={50}
+                          active
+                        />
+                      </CustomProvider>
                     </>
                   ) : (
                     <>
@@ -229,21 +234,26 @@ export default function Destination() {
                 ) : windowSize.innerWidth <= 992 ? (
                   activeLoader ? (
                     <>
-                      <Placeholder.Paragraph
-                        style={{ marginBottom: 20, marginTop: 5 }}
-                        rows={1}
-                        rowHeight={80}
-                      />
-                      <Placeholder.Paragraph
-                        style={{ marginTop: 25 }}
-                        rows={4}
-                        rowMargin={15}
-                      />
-                      <Placeholder.Paragraph
-                        style={{ marginTop: 110 }}
-                        rows={1}
-                        rowHeight={62.18}
-                      />
+                      <CustomProvider theme="dark">
+                        <Placeholder.Paragraph
+                          style={{ marginBottom: 20, marginTop: 5 }}
+                          rows={1}
+                          rowHeight={80}
+                          active
+                        />
+                        <Placeholder.Paragraph
+                          style={{ marginTop: 25 }}
+                          rows={4}
+                          rowMargin={15}
+                          active
+                        />
+                        <Placeholder.Paragraph
+                          style={{ marginTop: 110 }}
+                          rows={1}
+                          rowHeight={62.18}
+                          active
+                        />
+                      </CustomProvider>
                     </>
                   ) : (
                     <>
@@ -272,21 +282,26 @@ export default function Destination() {
                   )
                 ) : activeLoader ? (
                   <>
-                    <Placeholder.Paragraph
-                      style={{ marginBottom: 45 }}
-                      rows={1}
-                      rowHeight={95}
-                    />
-                    <Placeholder.Paragraph
-                      rows={5}
-                      rowMargin={15}
-                      rowHeight={15}
-                    />
-                    <Placeholder.Paragraph
-                      style={{ marginTop: 85 }}
-                      rows={1}
-                      rowHeight={73}
-                    />
+                    <CustomProvider theme="dark">
+                      <Placeholder.Paragraph
+                        style={{ marginBottom: 45 }}
+                        rows={1}
+                        rowHeight={95}
+                        active
+                      />
+                      <Placeholder.Paragraph
+                        rows={5}
+                        rowMargin={15}
+                        rowHeight={15}
+                        active
+                      />
+                      <Placeholder.Paragraph
+                        style={{ marginTop: 85 }}
+                        rows={1}
+                        rowHeight={73}
+                        active
+                      />
+                    </CustomProvider>
                   </>
                 ) : (
                   <>
