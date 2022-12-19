@@ -56,13 +56,13 @@ export default function Destination() {
   );
 
   // Set States For Destination Information
-  const [dest_name, setDestName] = useState(json.destinations[0].name);
-  const [dest_desc, setDestDesc] = useState(json.destinations[0].description);
-  const [dest_img, setDestImg] = useState(json.destinations[0].images.png);
-  const [dest_distance, setDestDistance] = useState(
-    json.destinations[0].distance
-  );
-  const [dest_travel, setDestTravel] = useState(json.destinations[0].travel);
+  const [destDetails, setdestDetails] = useState({
+    dest_name: json.destinations[0].name,
+    dest_desc: json.destinations[0].description,
+    dest_distance: json.destinations[0].distance,
+    dest_img: json.destinations[0].images.webp,
+    dest_travel: json.destinations[0].travel,
+  });
 
   // Function to Change State According to Destination
   const changeName = (e) => {
@@ -71,13 +71,17 @@ export default function Destination() {
     setTimeout(() => {
       setActiveLoader(false);
     }, 1500);
+
     Object.keys(json.destinations).map((key) => {
       if (e === json.destinations[key].name) {
-        setDestName(e);
-        setDestDesc(json.destinations[key].description);
-        setDestImg(json.destinations[key].images.webp);
-        setDestDistance(json.destinations[key].distance);
-        setDestTravel(json.destinations[key].travel);
+        setdestDetails((prev) => ({
+          ...prev,
+          dest_name: e,
+          dest_desc: json.destinations[key].description,
+          dest_distance: json.destinations[key].distance,
+          dest_img: json.destinations[key].images.webp,
+          dest_travel: json.destinations[key].travel,
+        }));
       }
       return true;
     });
@@ -119,7 +123,7 @@ export default function Destination() {
                 className={`ms-lg-5 m-auto ${
                   activeLoader ? "d-none" : "d-block"
                 }`}
-                src={images[dest_img]}
+                src={images[destDetails.dest_img]}
                 alt={"Loading"}
               />
             </div>
@@ -191,7 +195,7 @@ export default function Destination() {
                           rowHeight={60}
                           active
                         />
-                        <Placeholder.Paragraph rows={6} rowMargin={10} active/>
+                        <Placeholder.Paragraph rows={6} rowMargin={10} active />
                         <Placeholder.Paragraph
                           style={{ marginTop: 80 }}
                           rows={1}
@@ -209,24 +213,26 @@ export default function Destination() {
                   ) : (
                     <>
                       <div className="hero_main_head dest_head">
-                        {dest_name}
+                        {destDetails.dest_name}
                       </div>
                       <div className="hero_main_subhead dest_subhead">
-                        {dest_desc}
+                        {destDetails.dest_desc}
                       </div>
                       <hr />
                       <div className="row justify-content-md-center gy-3 pt-3">
                         <div className="col-lg-6 col-md-4 desc_detail">
                           <div className="desc_detail_name">Avg. Distance</div>
                           <div className="desc_detail_info">
-                            {dest_distance}
+                            {destDetails.dest_distance}
                           </div>
                         </div>
                         <div className="col-lg-6 col-md-4 desc_detail">
                           <div className="desc_detail_name">
                             Est. Travel Time
                           </div>
-                          <div className="desc_detail_info">{dest_travel}</div>
+                          <div className="desc_detail_info">
+                            {destDetails.dest_travel}
+                          </div>
                         </div>
                       </div>
                     </>
@@ -258,24 +264,26 @@ export default function Destination() {
                   ) : (
                     <>
                       <div className="hero_main_head dest_head">
-                        {dest_name}
+                        {destDetails.dest_name}
                       </div>
                       <div className="hero_main_subhead dest_subhead">
-                        {dest_desc}
+                        {destDetails.dest_desc}
                       </div>
                       <hr />
                       <div className="row justify-content-md-center gy-3 pt-3">
                         <div className="col-lg-6 col-md-4 desc_detail">
                           <div className="desc_detail_name">Avg. Distance</div>
                           <div className="desc_detail_info">
-                            {dest_distance}
+                            {destDetails.dest_distance}
                           </div>
                         </div>
                         <div className="col-lg-6 col-md-4 desc_detail">
                           <div className="desc_detail_name">
                             Est. Travel Time
                           </div>
-                          <div className="desc_detail_info">{dest_travel}</div>
+                          <div className="desc_detail_info">
+                            {destDetails.dest_travel}
+                          </div>
                         </div>
                       </div>
                     </>
@@ -305,19 +313,25 @@ export default function Destination() {
                   </>
                 ) : (
                   <>
-                    <div className="hero_main_head dest_head">{dest_name}</div>
+                    <div className="hero_main_head dest_head">
+                      {destDetails.dest_name}
+                    </div>
                     <div className="hero_main_subhead dest_subhead">
-                      {dest_desc}
+                      {destDetails.dest_desc}
                     </div>
                     <hr />
                     <div className="row justify-content-md-center gy-3 pt-3">
                       <div className="col-lg-6 col-md-4 desc_detail">
                         <div className="desc_detail_name">Avg. Distance</div>
-                        <div className="desc_detail_info">{dest_distance}</div>
+                        <div className="desc_detail_info">
+                          {destDetails.dest_distance}
+                        </div>
                       </div>
                       <div className="col-lg-6 col-md-4 desc_detail">
                         <div className="desc_detail_name">Est. Travel Time</div>
-                        <div className="desc_detail_info">{dest_travel}</div>
+                        <div className="desc_detail_info">
+                          {destDetails.dest_travel}
+                        </div>
                       </div>
                     </div>
                   </>
