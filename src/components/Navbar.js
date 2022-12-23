@@ -82,17 +82,6 @@ export default function Navbar(props) {
               className="navbar-nav custom_navbar-nav"
               id="custom_navbar-nav"
             >
-              <div className="close_nav d-md-none" onClick={() => setNav(!nav)}>
-                <span
-                  className={nav ? "burger_line active" : "burger_line"}
-                ></span>
-                <span
-                  className={nav ? "burger_line active" : "burger_line"}
-                ></span>
-                <span
-                  className={nav ? "burger_line active" : "burger_line"}
-                ></span>
-              </div>
               <NavLink
                 className={({ isActive }) =>
                   isActive
